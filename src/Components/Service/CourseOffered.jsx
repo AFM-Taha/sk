@@ -43,7 +43,9 @@ export default function CoursesOffered() {
     return (
         <Box
             sx={{
-                background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)",
+                background: 'linear-gradient(45deg, rgba(106, 17, 203, 1) 0%, rgba(37, 117, 252, 1) 100%)',
+                // color: 'white',
+                // background: "linear-gradient(90deg, #a18cd1 0%, #fbc2eb 100%)",
                 px: { xs: 2, md: 8 },
                 py: { xs: 4, md: 6 },
                 borderRadius: 2,
@@ -51,10 +53,12 @@ export default function CoursesOffered() {
             }}
             id="course-offered"
         >
-            <Typography variant="h4" fontWeight={700} mb={1}>
+            <Typography sx={{
+                color: '#14141E'
+            }} variant="h4" fontWeight={700} mb={1}>
                 Course Offered
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" mb={4}>
+            <Typography color='#fff' variant="subtitle1"  mb={4}>
                 Tech Courses that Make You Job-Ready
             </Typography>
             <Slider {...settings}>

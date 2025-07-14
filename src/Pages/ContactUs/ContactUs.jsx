@@ -172,7 +172,7 @@ const ContactUs = () => {
                             sx={{
                                 mt: 1,
                                 borderRadius: 2,
-                                background: "linear-gradient(90deg, #7B2FF2 0%, #F357A8 100%)",
+                                background: "linear-gradient(90deg, #6A11CB 0%, #2575FC 100%)",
                                 color: "#fff",
                                 fontWeight: 600,
                                 fontSize: "16px",

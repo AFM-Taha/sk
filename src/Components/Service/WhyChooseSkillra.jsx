@@ -32,7 +32,7 @@ export default function WhyChooseSkillra() {
     return (
         <Box
             sx={{
-                background: 'radial-gradient(circle at 100% 100%, #2575FC -40%, #fff 30%)',
+                background: 'radial-gradient(circle at 100% 100%, #2575FC -20%, #fff 40%)',
                 px: { xs: 2, md: 8 },
                 py: { xs: 4, md: 8 },
             }}

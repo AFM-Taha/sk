@@ -17,7 +17,7 @@ export default function Footer() {
                 sx={{
                     width: { xs: "98%", md: "90%" },
                     borderRadius: "28px",
-                    background: "linear-gradient(90deg, #7b2ff2 0%, #1e90ff 100%)",
+                    background: 'linear-gradient(90deg, #6617CE 0%, #2B6DF8 100%)',
                     color: "#fff",
                     px: { xs: 3, md: 8 },
                     py: { xs: 4, md: 6 },

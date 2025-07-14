@@ -1,24 +1,34 @@
-
 import React, { useState } from 'react';
 import { Box, Button, Typography, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useLocation } from 'react-router-dom'; // ✅ Import useLocation
 
 const navLinks = [
     { label: "Course", href: "/service/#course-offered" },
     { label: "Services", href: "/service" },
-    { label: "About us", href: "/service#about-us" },
+    { label: "About us", href: "/service/#about-us" },
     { label: "Blog", href: "/blog" },
 ];
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation(); // ✅ Get current route
 
     const handleMenuClick = () => setMenuOpen(true);
     const handleClose = () => setMenuOpen(false);
 
-    const handleNavClick = (href) => {
-        setMenuOpen(false);
+    const handleNavClick = () => setMenuOpen(false);
+
+    const isActive = (href) => {
+        const linkUrl = new URL(href, window.location.origin);
+        const linkPath = linkUrl.pathname;
+        const linkHash = linkUrl.hash;
+
+        const currentPath = location.pathname;
+        const currentHash = window.location.hash;
+
+        return currentPath === linkPath && (!linkHash || currentHash === linkHash);
     };
 
     return (
@@ -32,7 +42,6 @@ const Navbar = () => {
                 justifyContent: "center",
                 background: "transparent",
                 py: 3,
-
             }}
         >
             <Box
@@ -50,8 +59,7 @@ const Navbar = () => {
                 }}
             >
                 {/* Logo */}
-                <Box component="a"
-                    href="/" sx={{ display: "flex", alignItems: "center", mr: 4, textDecoration: "none" }}>
+                <Box component="a" href="/" sx={{ display: "flex", alignItems: "center", mr: 4, textDecoration: "none" }}>
                     <img
                         src="/assets/images/logo.svg"
                         alt="Skillra Logo"
@@ -59,7 +67,6 @@ const Navbar = () => {
                     />
                     <Typography
                         variant="h6"
-
                         sx={{
                             color: "#fff",
                             fontWeight: 700,
@@ -87,7 +94,7 @@ const Navbar = () => {
                             component="a"
                             href={link.href}
                             sx={{
-                                color: "#fff",
+                                color: isActive(link.href) ? "#2575FC" : "#fff", // ✅ Active color
                                 textDecoration: "none",
                                 fontWeight: 400,
                                 fontSize: 16,
@@ -110,7 +117,7 @@ const Navbar = () => {
                     sx={{
                         textDecoration: "none",
                         display: { xs: "none", lg: "inline-flex" },
-                        background: "linear-gradient(90deg, #7B3FE4 0%, #3F7AE4 100%)",
+                        background: "linear-gradient(90deg, #6A11CB 0%, #2575FC 100%)",
                         color: "#fff",
                         borderRadius: "30px",
                         px: 3,
@@ -121,15 +128,14 @@ const Navbar = () => {
                         ml: 2,
                         boxShadow: "none",
                         "&:hover": {
-                            background: "linear-gradient(90deg, #7B3FE4 0%, #3F7AE4 100%)",
-                            opacity: 0.9,
+                            background: 'linear-gradient(90deg, #6A11CB 3.29%, #6913CC 27.47%, #2575FC 98.73%, #6913CC 5.15%)',
                         },
                     }}
                 >
                     Contact Us
                 </Button>
 
-                {/* Hamburger Icon for Mobile */}
+                {/* Hamburger Icon */}
                 <IconButton
                     onClick={handleMenuClick}
                     sx={{
@@ -158,20 +164,23 @@ const Navbar = () => {
                         transition: "transform 0.4s cubic-bezier(.77,0,.18,1)",
                     }}
                 >
+                    {/* Close Icon */}
                     <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2 }}>
                         <IconButton onClick={handleClose} sx={{ color: "#fff" }}>
                             <CloseIcon />
                         </IconButton>
                     </Box>
+
+                    {/* Mobile Nav Links */}
                     <Box sx={{ display: "flex", flexDirection: "column", alignItems: "flex-start", px: 4, gap: 3 }}>
                         {navLinks.map((link) => (
                             <Typography
                                 key={link.label}
                                 component="a"
                                 href={link.href}
-                                onClick={() => handleNavClick(link.href)}
+                                onClick={handleClose}
                                 sx={{
-                                    color: "#fff",
+                                    color: isActive(link.href) ? "#2575FC" : "#fff", // ✅ Active color
                                     textDecoration: "none",
                                     fontWeight: 500,
                                     fontSize: 20,
@@ -184,6 +193,7 @@ const Navbar = () => {
                                 {link.label}
                             </Typography>
                         ))}
+
                         <Button
                             component='a'
                             href='/contact-us'
@@ -217,4 +227,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar
+export default Navbar;

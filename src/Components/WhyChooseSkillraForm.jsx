@@ -163,7 +163,7 @@ const WhyChooseSkillraForm = () => {
                         sx={{
                             mt: 2,
                             borderRadius: 99,
-                            background: "linear-gradient(90deg, #7B2FF2 0%, #F357A8 100%)",
+                            background: 'linear-gradient(90deg, #6A11CB 3.29%, #6913CC 27.47%, #2575FC 98.73%, #6913CC 5.15%)',
                             color: "#fff",
                             fontWeight: 600,
                             fontSize: "16px",

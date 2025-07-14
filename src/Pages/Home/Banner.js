@@ -65,12 +65,13 @@ const Banner = () => {
                             <li>No prior coding experience required</li>
                             <li>Suitable for final years, graduates and early professionals.</li>
                         </Box>
-                        <Button
-                            variant="contained"
+                        <Box
+                            // variant="contained"
                             sx={{
-                                background: "linear-gradient(90deg, #7B3FE4 0%, #E14FFF 100%)",
+
+                                background: 'linear-gradient(90deg, #6A11CB 3.29%, #6913CC 27.47%, #2575FC 98.73%, #6913CC 5.15%)',
                                 color: "#fff",
-                                borderRadius: "30px",
+                                borderRadius: "35px",
                                 width: "200px",
                                 px: 4,
                                 py: 1.5,
@@ -79,13 +80,13 @@ const Banner = () => {
                                 textTransform: "none",
                                 boxShadow: "0 2px 8px 0 rgba(123,63,228,0.15)",
                                 '&:hover': {
-                                    background: "linear-gradient(90deg, #7B3FE4 0%, #E14FFF 100%)",
+                                    background: 'linear-gradient(90deg, #6A11CB 3.29%, #6913CC 27.47%, #2575FC 98.73%, #6913CC 5.15%)',
                                     opacity: 0.9,
                                 }
                             }}
                         >
-                            Enroll Now
-                        </Button>
+                            Enroll Now 
+                        </Box>
                     </Box>
 
                     {/* Right Side: Image */}
